@@ -1,0 +1,37 @@
+#!/bin/bash -e
+
+# Variables and utility functions
+NPM_LOG="/home/ubuntu/npm.log"
+GIT_DIR="/home/ubuntu/production"
+WORK_TREE="/home/ubuntu/deploy"
+
+# Log actions with datestamp
+log() {
+    echo " [ $(date -R) ] $@"
+}
+
+# Start of script
+log "Start post-receive script"
+
+# Killing all node processes
+log "Kill all node processes"
+pkill node || true
+
+# Checkout the code to deploy folder
+log "Checkout code to $WORK_TREE"
+git --work-tree="$WORK_TREE" --git-dir="$GIT_DIR" checkout -f
+
+# Load npm if not found
+hash npm &> /dev/null || source "$HOME/.nvm/nvm.sh"
+
+# Move to $WORK_TREE
+log "install node dependencies"
+cd "$WORK_TREE"
+npm install
+
+# Start server
+log "Starting server"
+npm run deploy &>$NPM_LOG &
+
+# End of script
+log "Stop post-receive script"

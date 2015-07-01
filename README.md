@@ -16,6 +16,10 @@ Install
 Usage
 ------
 
+- Kills old process and executes `npm deploy`
+- Logs all messages to `$NPM_LOG`.
+- Deploys production to `$WORK_TREE`.
+
 License
 -------
 
