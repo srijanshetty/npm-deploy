@@ -1,0 +1,31 @@
+{
+  "name": "node-deploy",
+  "version": "1.0.0",
+  "description": "Heroku style node deploys",
+  "main": "app.js",
+  "dependencies": {
+    "inquirer": "^0.8.5",
+    "shelljs": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srijanshetty/npm-deploy.git"
+  },
+  "keywords": [
+    "heroku",
+    "node",
+    "push-to-deploy",
+    "deploy",
+    "push"
+  ],
+  "author": "Srijan R. Shetty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/srijanshetty/npm-deploy/issues"
+  },
+  "homepage": "https://github.com/srijanshetty/npm-deploy#readme"
+}
